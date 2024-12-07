@@ -14,7 +14,7 @@ const LandingPage = () => {
         <img 
           src="https://i.imgur.com/A4PqozG.png" 
           alt="Ford Green Logo" 
-          className="h-12 object-contain"
+          className="h-16 object-contain"
         />
       </header>
 
