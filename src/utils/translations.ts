@@ -13,7 +13,7 @@ export const translations = {
       "Track your favorite vehicles",
       "Estimate your credit score instantly",
       "Available in English and Spanish",
-      "Includes Free Lifetime Powertrain Warranty"
+      "Most vehicles come with Free Lifetime Powertrain Warranty (see dealer for details)"
     ],
     features: {
       chatSupport: {
@@ -26,7 +26,7 @@ export const translations = {
       },
       warranty: {
         title: "Peace of Mind",
-        description: "Enjoy our Free Lifetime Powertrain Warranty coverage"
+        description: "Most vehicles include Free Lifetime Powertrain Warranty coverage. See dealer for complete details."
       }
     },
     setup: {
@@ -75,7 +75,7 @@ export const translations = {
       "Sigue tus vehículos favoritos",
       "Estima tu puntaje crediticio al instante",
       "Disponible en inglés y español",
-      "Incluye garantía gratuita de por vida del tren motriz"
+      "La mayoría de los vehículos incluyen garantía gratuita de por vida del tren motriz (consulte al distribuidor para más detalles)"
     ],
     features: {
       chatSupport: {
@@ -88,7 +88,7 @@ export const translations = {
       },
       warranty: {
         title: "Tranquilidad Total",
-        description: "Disfruta de nuestra garantía gratuita de por vida"
+        description: "La mayoría de los vehículos incluyen garantía gratuita de por vida del tren motriz. Consulte al distribuidor para detalles completos."
       }
     },
     setup: {
