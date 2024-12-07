@@ -27,7 +27,7 @@ export const ContactForm = () => {
     
     toast({
       title: "Thanks for your interest!",
-      description: "We'll be in touch shortly with vehicle availability.",
+      description: "We'll text you shortly to schedule your consultation.",
     });
     
     setIsLoading(false);
@@ -42,6 +42,10 @@ export const ContactForm = () => {
   return (
     <section className="mb-16">
       <div className="max-w-md mx-auto bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold text-ford-blue mb-2">{t.form.title}</h2>
+          <p className="text-gray-600">{t.form.subtitle}</p>
+        </div>
         <form onSubmit={handleSubmit} className="space-y-6">
           <Input
             type="text"

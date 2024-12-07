@@ -1,87 +1,125 @@
 export const translations = {
   EN: {
     hero: {
-      title: "Enjoy Researching Cars With Top-Rated Experts & Our Powerful New Customer Dashboard",
-      subtitle: "(Without All the Trouble of Regular Dealerships)",
-      description: "Get useful information right on your phone, and happily make your new Ford your best ride, faster."
+      title: "Get Your Personal Ford Shopping Dashboard",
+      subtitle: "Expert guidance and personalized recommendations, right on your phone",
+      description: "Start your journey to finding the perfect Ford with a simple consultation call. Our experts will set up your custom dashboard and guide you every step of the way."
     },
     benefits: [
       "Get personalized vehicle recommendations",
       "Compare prices and features instantly",
       "Access expert research and reviews",
-      "Save time with our streamlined process",
-      "Pick up right where you left off with a free account",
+      "Chat with consultants anytime in the app",
+      "Track your favorite vehicles",
       "Estimate your credit score instantly",
       "Available in English and Spanish",
       "Includes Free Lifetime Powertrain Warranty"
     ],
     features: {
       chatSupport: {
-        title: "Personal Chat Support",
-        description: "Chat with our experts in English or Spanish"
+        title: "Expert Support",
+        description: "Chat with our consultants anytime through the app"
       },
       creditScore: {
-        title: "Credit Score Tool",
-        description: "Estimate your credit score and explore financing options"
+        title: "Smart Tools",
+        description: "Estimate payments and explore financing options"
       },
       warranty: {
-        title: "Warranty Protection",
-        description: "Learn about our Free Lifetime Powertrain Warranty coverage"
+        title: "Peace of Mind",
+        description: "Enjoy our Free Lifetime Powertrain Warranty coverage"
       }
     },
+    setup: {
+      title: "Easy 3-Step Setup",
+      steps: [
+        {
+          title: "Quick Consultation",
+          description: "Brief call with our expert to understand your needs"
+        },
+        {
+          title: "Secure Access",
+          description: "Receive your personal setup code via SMS"
+        },
+        {
+          title: "Start Shopping",
+          description: "Access your dashboard and start exploring options"
+        }
+      ]
+    },
     form: {
+      title: "Get Started with Your Personal Dashboard",
+      subtitle: "Fill out this form to schedule your quick consultation call",
       namePlaceholder: "Your Name",
       emailPlaceholder: "Your Email",
       phonePlaceholder: "Your Phone Number",
-      submitButton: "Check Availability Now",
-      loadingButton: "Checking Availability...",
-      privacyNote: "Free consultation. No spam. Privacy protected."
+      submitButton: "Schedule My Consultation",
+      loadingButton: "Scheduling...",
+      privacyNote: "Your information is secure. We'll text you to confirm your consultation time."
     },
     testimonial: {
-      quote: "The easiest car shopping experience I've ever had. Found my perfect Ford in just 20 minutes!",
+      quote: "The personal dashboard made finding my perfect Ford so easy. The consultant was incredibly helpful during setup!",
       author: "- Sarah M., Happy Ford Owner"
     }
   },
   ES: {
     hero: {
-      title: "Disfrute Investigando Autos con Expertos Calificados y Nuestro Potente Nuevo Panel de Control",
-      subtitle: "(Sin las Molestias de los Concesionarios Tradicionales)",
-      description: "Obtenga información útil directamente en su teléfono y haga de su nuevo Ford su mejor vehículo, más rápido."
+      title: "Obtén Tu Panel de Control Personal Ford",
+      subtitle: "Orientación experta y recomendaciones personalizadas, directamente en tu teléfono",
+      description: "Comienza tu búsqueda del Ford perfecto con una simple llamada de consulta. Nuestros expertos configurarán tu panel personalizado y te guiarán en cada paso."
     },
     benefits: [
-      "Obtenga recomendaciones personalizadas de vehículos",
-      "Compare precios y características al instante",
-      "Acceda a investigaciones y reseñas de expertos",
-      "Ahorre tiempo con nuestro proceso simplificado",
-      "Continúe donde lo dejó con una cuenta gratuita",
-      "Estime su puntaje crediticio al instante",
+      "Obtén recomendaciones personalizadas de vehículos",
+      "Compara precios y características al instante",
+      "Accede a investigaciones y reseñas de expertos",
+      "Chatea con consultores en cualquier momento",
+      "Sigue tus vehículos favoritos",
+      "Estima tu puntaje crediticio al instante",
       "Disponible en inglés y español",
       "Incluye garantía gratuita de por vida del tren motriz"
     ],
     features: {
       chatSupport: {
-        title: "Soporte Personal por Chat",
-        description: "Chatee con nuestros expertos en inglés o español"
+        title: "Soporte Experto",
+        description: "Chatea con nuestros consultores en cualquier momento"
       },
       creditScore: {
-        title: "Herramienta de Puntaje Crediticio",
-        description: "Estime su puntaje crediticio y explore opciones de financiamiento"
+        title: "Herramientas Inteligentes",
+        description: "Estima pagos y explora opciones de financiamiento"
       },
       warranty: {
-        title: "Protección de Garantía",
-        description: "Conozca sobre nuestra garantía gratuita de por vida del tren motriz"
+        title: "Tranquilidad Total",
+        description: "Disfruta de nuestra garantía gratuita de por vida"
       }
     },
+    setup: {
+      title: "Configuración en 3 Pasos",
+      steps: [
+        {
+          title: "Consulta Rápida",
+          description: "Breve llamada con nuestro experto para entender tus necesidades"
+        },
+        {
+          title: "Acceso Seguro",
+          description: "Recibe tu código de configuración por SMS"
+        },
+        {
+          title: "Empieza a Comprar",
+          description: "Accede a tu panel y comienza a explorar opciones"
+        }
+      ]
+    },
     form: {
-      namePlaceholder: "Su Nombre",
-      emailPlaceholder: "Su Correo Electrónico",
-      phonePlaceholder: "Su Número de Teléfono",
-      submitButton: "Verificar Disponibilidad Ahora",
-      loadingButton: "Verificando Disponibilidad...",
-      privacyNote: "Consulta gratuita. Sin spam. Privacidad protegida."
+      title: "Comienza con Tu Panel Personal",
+      subtitle: "Completa este formulario para programar tu consulta rápida",
+      namePlaceholder: "Tu Nombre",
+      emailPlaceholder: "Tu Correo Electrónico",
+      phonePlaceholder: "Tu Número de Teléfono",
+      submitButton: "Programar Mi Consulta",
+      loadingButton: "Programando...",
+      privacyNote: "Tu información está segura. Te enviaremos un mensaje para confirmar tu hora de consulta."
     },
     testimonial: {
-      quote: "La experiencia de compra de auto más fácil que he tenido. ¡Encontré mi Ford perfecto en solo 20 minutos!",
+      quote: "El panel personal hizo que encontrar mi Ford perfecto fuera muy fácil. ¡El consultor fue increíblemente útil durante la configuración!",
       author: "- Sara M., Propietaria Feliz de Ford"
     }
   }

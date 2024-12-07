@@ -3,6 +3,7 @@ import { HeroSection } from './landing/HeroSection';
 import { PhonePreview } from './landing/PhonePreview';
 import { BenefitsSection } from './landing/BenefitsSection';
 import { FeaturesSection } from './landing/FeaturesSection';
+import { SetupSteps } from './landing/SetupSteps';
 import { ContactForm } from './landing/ContactForm';
 import { TestimonialSection } from './landing/TestimonialSection';
 
@@ -16,6 +17,7 @@ const LandingPage = () => {
         <PhonePreview />
         <BenefitsSection />
         <FeaturesSection />
+        <SetupSteps />
         <ContactForm />
         <TestimonialSection />
       </main>
