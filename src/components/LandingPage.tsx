@@ -6,8 +6,13 @@ import { CheckCircle, Star, Phone, Shield } from "lucide-react";
 import { Header } from './landing/Header';
 import { HeroSection } from './landing/HeroSection';
 import { PhonePreview } from './landing/PhonePreview';
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/utils/translations";
 
 const LandingPage = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -48,16 +53,7 @@ const LandingPage = () => {
 
         {/* Benefits Section */}
         <section className="mb-16 grid md:grid-cols-2 gap-8 bg-white rounded-2xl p-8 shadow-lg">
-          {[
-            "Get personalized vehicle recommendations",
-            "Compare prices and features instantly",
-            "Access expert research and reviews",
-            "Save time with our streamlined process",
-            "Pick up right where you left off with a free account",
-            "Estimate your credit score instantly",
-            "Available in English and Spanish",
-            "Includes Free Lifetime Powertrain Warranty"
-          ].map((benefit, index) => (
+          {t.benefits.map((benefit, index) => (
             <div key={index} className="flex items-center gap-4 text-lg group hover:transform hover:translate-x-2 transition-transform">
               <CheckCircle className="text-ford-green h-8 w-8 flex-shrink-0 group-hover:scale-110 transition-transform" />
               <span className="font-medium text-gray-700">{benefit}</span>
@@ -75,8 +71,8 @@ const LandingPage = () => {
                   <Phone className="h-6 w-6 text-ford-blue" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Personal Chat Support</h3>
-                  <p className="text-gray-600">Chat with our experts in English or Spanish</p>
+                  <h3 className="font-semibold text-lg mb-2">{t.features.chatSupport.title}</h3>
+                  <p className="text-gray-600">{t.features.chatSupport.description}</p>
                 </div>
               </div>
             </div>
@@ -86,8 +82,8 @@ const LandingPage = () => {
                   <Star className="h-6 w-6 text-ford-green" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Credit Score Tool</h3>
-                  <p className="text-gray-600">Estimate your credit score and explore financing options</p>
+                  <h3 className="font-semibold text-lg mb-2">{t.features.creditScore.title}</h3>
+                  <p className="text-gray-600">{t.features.creditScore.description}</p>
                 </div>
               </div>
             </div>
@@ -97,8 +93,8 @@ const LandingPage = () => {
                   <Shield className="h-6 w-6 text-ford-blue" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Warranty Protection</h3>
-                  <p className="text-gray-600">Learn about our Free Lifetime Powertrain Warranty coverage</p>
+                  <h3 className="font-semibold text-lg mb-2">{t.features.warranty.title}</h3>
+                  <p className="text-gray-600">{t.features.warranty.description}</p>
                 </div>
               </div>
             </div>
@@ -112,7 +108,7 @@ const LandingPage = () => {
               <Input
                 type="text"
                 name="name"
-                placeholder="Your Name"
+                placeholder={t.form.namePlaceholder}
                 value={formData.name}
                 onChange={handleInputChange}
                 required
@@ -121,7 +117,7 @@ const LandingPage = () => {
               <Input
                 type="email"
                 name="email"
-                placeholder="Your Email"
+                placeholder={t.form.emailPlaceholder}
                 value={formData.email}
                 onChange={handleInputChange}
                 required
@@ -130,7 +126,7 @@ const LandingPage = () => {
               <Input
                 type="tel"
                 name="phone"
-                placeholder="Your Phone Number"
+                placeholder={t.form.phonePlaceholder}
                 value={formData.phone}
                 onChange={handleInputChange}
                 required
@@ -141,10 +137,10 @@ const LandingPage = () => {
                 disabled={isLoading}
                 className="w-full bg-ford-green hover:bg-ford-green/90 text-white px-8 py-6 text-lg rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-xl disabled:opacity-70"
               >
-                {isLoading ? "Checking Availability..." : "Check Availability Now"}
+                {isLoading ? t.form.loadingButton : t.form.submitButton}
               </Button>
               <p className="text-sm text-gray-500 text-center">
-                Free consultation. No spam. Privacy protected.
+                {t.form.privacyNote}
               </p>
             </form>
           </div>
@@ -158,9 +154,9 @@ const LandingPage = () => {
             ))}
           </div>
           <blockquote className="text-xl italic text-gray-700">
-            "The easiest car shopping experience I've ever had. Found my perfect Ford in just 20 minutes!"
+            {t.testimonial.quote}
           </blockquote>
-          <p className="font-semibold text-gray-900">- Sarah M., Happy Ford Owner</p>
+          <p className="font-semibold text-gray-900">{t.testimonial.author}</p>
         </section>
       </main>
     </div>
