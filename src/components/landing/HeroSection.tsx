@@ -42,21 +42,23 @@ export const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const dynamicTitle = t.hero.title.replace(
-    "Ford",
-    `Ford ${FORD_MODELS[currentModelIndex]}`
-  );
+  const titleStart = t.hero.title.split("Ford")[0];
+  const titleEnd = t.hero.title.split("Ford")[1];
 
   return (
     <section className="text-center mb-16">
       <div className="max-w-3xl mx-auto space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold mb-8 text-ford-blue leading-tight">
-          <span 
-            className={`block transition-opacity duration-400 ease-in-out ${
-              isTransitioning ? 'opacity-0' : 'opacity-100'
-            }`}
-          >
-            {dynamicTitle}
+          <span className="block">
+            {titleStart}Ford{" "}
+            <span 
+              className={`inline-block transition-opacity duration-400 ease-in-out ${
+                isTransitioning ? 'opacity-0' : 'opacity-100'
+              }`}
+            >
+              {FORD_MODELS[currentModelIndex]}
+            </span>
+            {titleEnd}
           </span>
           <span className="block text-xl md:text-2xl mt-4 text-gray-600 font-normal">
             {t.hero.subtitle}
