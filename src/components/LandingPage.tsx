@@ -51,10 +51,13 @@ const LandingPage = () => {
         {/* Hero Section */}
         <section className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-6 text-ford-blue">
-            Find Your Perfect Ford in Minutes, Not Hours
+            Enjoy Researching Cars With Top-Rated Experts
+            <span className="block text-xl md:text-2xl mt-2 text-gray-600">
+              (Without All the Trouble of Regular Dealerships)
+            </span>
           </h1>
           <p className="text-lg mb-6 text-gray-600">
-            Skip the dealership hassle. Research and find your ideal Ford with expert guidance, right from your phone.
+            Get useful information right on your phone, and happily make your new Ford your best ride, faster.
           </p>
         </section>
 
