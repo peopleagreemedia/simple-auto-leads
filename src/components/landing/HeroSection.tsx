@@ -1,15 +1,54 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/utils/translations";
+import { useState, useEffect } from "react";
+
+const FORD_MODELS = [
+  "Bronco",
+  "Bronco Sport",
+  "E-Series Cutaway",
+  "Edge",
+  "Escape",
+  "Expedition",
+  "Expedition Max",
+  "Explorer",
+  "F-Series Trucks",
+  "Maverick",
+  "Mustang",
+  "Mustang Mach-E",
+  "Ranger",
+  "Super Duty Trucks",
+  "Transit Cargo Van",
+  "Transit Commercial",
+  "Transit Passenger Wagon"
+];
 
 export const HeroSection = () => {
   const { language } = useLanguage();
   const t = translations[language];
+  const [currentModelIndex, setCurrentModelIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentModelIndex((prevIndex) => 
+        prevIndex === FORD_MODELS.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000); // Change model every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const dynamicTitle = t.hero.title.replace(
+    "Ford",
+    `Ford ${FORD_MODELS[currentModelIndex]}`
+  );
 
   return (
     <section className="text-center mb-16">
       <div className="max-w-3xl mx-auto space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold mb-8 text-ford-blue leading-tight">
-          {t.hero.title}
+          <span className="block transition-opacity duration-500">
+            {dynamicTitle}
+          </span>
           <span className="block text-xl md:text-2xl mt-4 text-gray-600 font-normal">
             {t.hero.subtitle}
           </span>
