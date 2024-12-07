@@ -49,6 +49,23 @@ const LandingPage = () => {
           </p>
         </section>
 
+        {/* Video Section */}
+        <section className="mb-12">
+          <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+            <video 
+              className="w-full h-full object-cover"
+              controls
+              poster="/placeholder.svg"
+            >
+              <source src="/path-to-your-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p className="text-center mt-4 text-gray-600 italic">
+            "You can enjoy researching cars with top-rated experts, get useful information right on your phone, and happily make your new Ford your best ride, faster. Our experts' online research experience helps you gather everything you need to stop wasting time on boring, tedious vehicle research and start having fun while you shop for a car!"
+          </p>
+        </section>
+
         {/* Benefits Section */}
         <section className="mb-12 grid md:grid-cols-2 gap-6">
           {[
