@@ -26,12 +26,17 @@ export const HeroSection = () => {
   const { language } = useLanguage();
   const t = translations[language];
   const [currentModelIndex, setCurrentModelIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentModelIndex((prevIndex) => 
-        prevIndex === FORD_MODELS.length - 1 ? 0 : prevIndex + 1
-      );
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentModelIndex((prevIndex) => 
+          prevIndex === FORD_MODELS.length - 1 ? 0 : prevIndex + 1
+        );
+        setIsTransitioning(false);
+      }, 200); // Half of the transition duration
     }, 3000); // Change model every 3 seconds
 
     return () => clearInterval(interval);
@@ -46,7 +51,11 @@ export const HeroSection = () => {
     <section className="text-center mb-16">
       <div className="max-w-3xl mx-auto space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold mb-8 text-ford-blue leading-tight">
-          <span className="block transition-opacity duration-500">
+          <span 
+            className={`block transition-opacity duration-400 ease-in-out ${
+              isTransitioning ? 'opacity-0' : 'opacity-100'
+            }`}
+          >
             {dynamicTitle}
           </span>
           <span className="block text-xl md:text-2xl mt-4 text-gray-600 font-normal">
