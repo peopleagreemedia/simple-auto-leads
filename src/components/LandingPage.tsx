@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import { CheckCircle, Star, Phone } from "lucide-react";
+import { CheckCircle, Star, Phone, Globe, Shield } from "lucide-react";
 
 const LandingPage = () => {
   const [formData, setFormData] = useState({
@@ -38,12 +38,16 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-900 animate-fade-in">
       {/* Header */}
-      <header className="py-6 px-4 flex justify-center items-center border-b bg-white shadow-sm">
+      <header className="py-6 px-4 flex justify-between items-center border-b bg-white shadow-sm">
         <img 
           src="https://i.imgur.com/A4PqozG.png" 
           alt="Ford Green Logo" 
           className="h-16 object-contain"
         />
+        <div className="flex items-center gap-2">
+          <Globe className="h-5 w-5 text-ford-blue" />
+          <span className="text-sm font-medium">EN | ES</span>
+        </div>
       </header>
 
       {/* Main Content */}
@@ -94,7 +98,10 @@ const LandingPage = () => {
             "Compare prices and features instantly",
             "Access expert research and reviews",
             "Save time with our streamlined process",
-            "Pick up right where you left off with a free account"
+            "Pick up right where you left off with a free account",
+            "Estimate your credit score instantly",
+            "Available in English and Spanish",
+            "Includes Free Lifetime Powertrain Warranty"
           ].map((benefit, index) => (
             <div key={index} className="flex items-center gap-4 text-lg group hover:transform hover:translate-x-2 transition-transform">
               <CheckCircle className="text-ford-green h-8 w-8 flex-shrink-0 group-hover:scale-110 transition-transform" />
@@ -106,7 +113,7 @@ const LandingPage = () => {
         {/* Interactive Features Section */}
         <section className="mb-16 bg-white rounded-2xl p-8 shadow-lg">
           <h2 className="text-2xl font-bold text-ford-blue mb-6">Interactive Tools at Your Fingertips</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             <div className="space-y-4">
               <div className="flex items-start gap-4">
                 <div className="bg-ford-blue/10 p-3 rounded-lg">
@@ -114,7 +121,7 @@ const LandingPage = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-2">Personal Chat Support</h3>
-                  <p className="text-gray-600">Chat with our experts and get instant answers to all your questions</p>
+                  <p className="text-gray-600">Chat with our experts in English or Spanish</p>
                 </div>
               </div>
             </div>
@@ -124,8 +131,19 @@ const LandingPage = () => {
                   <Star className="h-6 w-6 text-ford-green" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Interactive Tools</h3>
-                  <p className="text-gray-600">Customize your experience with payment calculators and trade-in estimators</p>
+                  <h3 className="font-semibold text-lg mb-2">Credit Score Tool</h3>
+                  <p className="text-gray-600">Estimate your credit score and explore financing options</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-4">
+                <div className="bg-ford-blue/10 p-3 rounded-lg">
+                  <Shield className="h-6 w-6 text-ford-blue" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Warranty Protection</h3>
+                  <p className="text-gray-600">Learn about our Free Lifetime Powertrain Warranty coverage</p>
                 </div>
               </div>
             </div>
