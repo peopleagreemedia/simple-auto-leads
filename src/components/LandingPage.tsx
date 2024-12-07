@@ -12,7 +12,7 @@ const LandingPage = () => {
       {/* Header */}
       <header className="py-4 px-4 flex justify-center items-center border-b">
         <img 
-          src="/lovable-uploads/073e7e0c-72e9-4ac6-b548-196c633b6104.png" 
+          src="https://i.imgur.com/A4PqozG.png" 
           alt="Ford Green Logo" 
           className="h-12 object-contain"
         />
