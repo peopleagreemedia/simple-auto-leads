@@ -102,6 +102,35 @@ const LandingPage = () => {
           ))}
         </section>
 
+        {/* Interactive Features Section */}
+        <section className="mb-16 bg-white rounded-2xl p-8 shadow-lg">
+          <h2 className="text-2xl font-bold text-ford-blue mb-6">Interactive Tools at Your Fingertips</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <div className="flex items-start gap-4">
+                <div className="bg-ford-blue/10 p-3 rounded-lg">
+                  <Phone className="h-6 w-6 text-ford-blue" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Personal Chat Support</h3>
+                  <p className="text-gray-600">Chat with our experts and get instant answers to all your questions</p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-4">
+                <div className="bg-ford-green/10 p-3 rounded-lg">
+                  <Star className="h-6 w-6 text-ford-green" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Interactive Tools</h3>
+                  <p className="text-gray-600">Customize your experience with payment calculators and trade-in estimators</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Form Section */}
         <section className="mb-16">
           <div className="max-w-md mx-auto bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
