@@ -93,7 +93,8 @@ const LandingPage = () => {
             "Get personalized vehicle recommendations",
             "Compare prices and features instantly",
             "Access expert research and reviews",
-            "Save time with our streamlined process"
+            "Save time with our streamlined process",
+            "Pick up right where you left off with a free account"
           ].map((benefit, index) => (
             <div key={index} className="flex items-center gap-4 text-lg group hover:transform hover:translate-x-2 transition-transform">
               <CheckCircle className="text-ford-green h-8 w-8 flex-shrink-0 group-hover:scale-110 transition-transform" />
