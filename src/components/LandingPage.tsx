@@ -5,14 +5,18 @@ import { useToast } from "@/components/ui/use-toast";
 import { CheckCircle, Star } from "lucide-react";
 
 const LandingPage = () => {
-  const [email, setEmail] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: ""
+  });
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    console.log("Form submitted with email:", email);
+    console.log("Form submitted with data:", formData);
     
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -23,7 +27,12 @@ const LandingPage = () => {
     });
     
     setIsLoading(false);
-    setEmail("");
+    setFormData({ name: "", email: "", phone: "" });
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -85,10 +94,29 @@ const LandingPage = () => {
         <section className="mb-12 max-w-md mx-auto">
           <form onSubmit={handleSubmit} className="space-y-4">
             <Input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+              className="text-lg py-6"
+            />
+            <Input
               type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+              className="text-lg py-6"
+            />
+            <Input
+              type="tel"
+              name="phone"
+              placeholder="Your Phone Number"
+              value={formData.phone}
+              onChange={handleInputChange}
               required
               className="text-lg py-6"
             />
