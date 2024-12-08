@@ -30,14 +30,25 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
   const { language } = useLanguage();
   const t = translations[language];
   const [showModels, setShowModels] = useState(false);
+  const [isConfirming, setIsConfirming] = useState(false);
 
   const handleModelClick = (model: string) => {
-    setShowModels(false); // Close the dialog after selection
+    setShowModels(false);
+    setIsConfirming(true);
+  };
+
+  const handleConfirm = () => {
+    setIsConfirming(false);
     // Find the form element and scroll to it
     const formElement = document.querySelector('#contact-form');
     if (formElement) {
       formElement.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleChooseDifferent = () => {
+    setIsConfirming(false);
+    setShowModels(true);
   };
 
   return (
@@ -71,6 +82,33 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
             <p className="text-gray-600 mt-4 max-w-lg mx-auto group-hover:text-ford-blue transition-colors">
               Discover the features that matter most to you in our interactive preview
             </p>
+          </div>
+        ) : isConfirming ? (
+          <div className="space-y-6">
+            <img
+              src={`/images/${selectedModel.toLowerCase()}.png`}
+              alt={`Preview of ${selectedModel}`}
+              className="w-full max-w-md mx-auto"
+            />
+            <div className="space-y-4">
+              <p className="text-lg text-gray-700">
+                Is this the Ford {selectedModel} you're interested in?
+              </p>
+              <div className="flex gap-4 justify-center">
+                <button
+                  onClick={handleConfirm}
+                  className="px-6 py-2 bg-ford-blue text-white rounded-lg hover:bg-ford-blue/90 transition-colors"
+                >
+                  Yes, Continue
+                </button>
+                <button
+                  onClick={handleChooseDifferent}
+                  className="px-6 py-2 border border-ford-blue text-ford-blue rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  Choose Different Model
+                </button>
+              </div>
+            </div>
           </div>
         ) : (
           <>
