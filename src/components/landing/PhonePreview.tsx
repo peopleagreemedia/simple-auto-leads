@@ -31,8 +31,11 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
   const t = translations[language];
   const [showModels, setShowModels] = useState(false);
   const [isConfirming, setIsConfirming] = useState(false);
+  const [localSelectedModel, setLocalSelectedModel] = useState(selectedModel);
 
   const handleModelClick = (model: string) => {
+    console.log("Model clicked in PhonePreview:", model);
+    setLocalSelectedModel(model);
     setShowModels(false);
     setIsConfirming(true);
   };
@@ -57,7 +60,7 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
         {selectedModel ? `Preview of Your ${selectedModel}` : "Find Your Perfect Ford"}
       </h2>
       <div className="flex flex-col items-center text-center">
-        {!selectedModel ? (
+        {!selectedModel && !isConfirming ? (
           <div 
             className="cursor-pointer group w-full"
             onClick={() => setShowModels(true)}
@@ -86,13 +89,13 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
         ) : isConfirming ? (
           <div className="space-y-8 max-w-2xl mx-auto p-6 bg-gray-50 rounded-xl border-2 border-ford-blue animate-fade-in">
             <img
-              src={`/images/${selectedModel.toLowerCase()}.png`}
-              alt={`Preview of ${selectedModel}`}
+              src={`/images/${localSelectedModel.toLowerCase()}.png`}
+              alt={`Preview of ${localSelectedModel}`}
               className="w-full max-w-md mx-auto hover:scale-105 transition-transform duration-300"
             />
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-ford-blue">
-                Is this the Ford {selectedModel} you're interested in?
+                Is this the Ford {localSelectedModel} you're interested in?
               </h3>
               <p className="text-lg text-gray-700">
                 Take a moment to confirm if this model matches your preferences
