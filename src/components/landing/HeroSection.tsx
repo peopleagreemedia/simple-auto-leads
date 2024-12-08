@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/utils/translations";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const FORD_MODELS = [
   "Bronco",
@@ -27,20 +27,32 @@ export const HeroSection = () => {
   const t = translations[language];
   const [currentModelIndex, setCurrentModelIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const intervalRef = useRef<number>();
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentModelIndex((prevIndex) => 
-          prevIndex === FORD_MODELS.length - 1 ? 0 : prevIndex + 1
-        );
-        setIsTransitioning(false);
-      }, 200);
-    }, 3000);
+    const startInterval = () => {
+      intervalRef.current = window.setInterval(() => {
+        if (!isPaused) {
+          setIsTransitioning(true);
+          setTimeout(() => {
+            setCurrentModelIndex((prevIndex) => 
+              prevIndex === FORD_MODELS.length - 1 ? 0 : prevIndex + 1
+            );
+            setIsTransitioning(false);
+          }, 200);
+        }
+      }, 3000);
+    };
 
-    return () => clearInterval(interval);
-  }, []);
+    startInterval();
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isPaused]);
 
   const titleStart = t.hero.title.split("Ford")[0];
   const titleEnd = t.hero.title.split("Ford")[1];
@@ -55,6 +67,8 @@ export const HeroSection = () => {
                 ? 'opacity-0 scale-95 transform' 
                 : 'opacity-100 scale-100 transform'
             }`}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
           >
             {titleStart}Ford {FORD_MODELS[currentModelIndex]}{titleEnd}
           </span>
