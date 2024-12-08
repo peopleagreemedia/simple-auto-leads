@@ -22,16 +22,16 @@ export const InitialPreview = ({ onClick }: InitialPreviewProps) => {
           </video>
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end justify-center p-8">
             <p className="text-white text-xl font-medium group-hover:scale-105 transition-transform duration-300">
-              Explore Our Ford Models
+              Find Your Perfect Ford
             </p>
           </div>
         </div>
         <div className="space-y-4">
           <h3 className="text-2xl font-bold text-ford-blue">
-            Find Your Perfect Ford
+            Get Your Free Personal Dashboard
           </h3>
           <p className="text-gray-600 text-lg">
-            Select from our range of vehicles to discover features, benefits, and special offers tailored to your needs.
+            Access exclusive features, pricing, and special offers tailored to your needs through our interactive dashboard.
           </p>
           <button
             className="w-full sm:w-auto px-8 py-4 bg-ford-blue text-white rounded-xl hover:bg-ford-blue/90 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg font-semibold"
