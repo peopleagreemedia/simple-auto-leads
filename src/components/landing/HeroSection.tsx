@@ -50,8 +50,10 @@ export const HeroSection = () => {
       <div className="max-w-3xl mx-auto space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold mb-8 text-ford-blue leading-tight">
           <span 
-            className={`block transition-opacity duration-400 ease-in-out ${
-              isTransitioning ? 'opacity-0' : 'opacity-100'
+            className={`block transition-all duration-400 ease-in-out ${
+              isTransitioning 
+                ? 'opacity-0 scale-95 transform' 
+                : 'opacity-100 scale-100 transform'
             }`}
           >
             {titleStart}Ford {FORD_MODELS[currentModelIndex]}{titleEnd}
