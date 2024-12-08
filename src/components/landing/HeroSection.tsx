@@ -49,16 +49,12 @@ export const HeroSection = () => {
     <section className="text-center mb-16">
       <div className="max-w-3xl mx-auto space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold mb-8 text-ford-blue leading-tight">
-          <span className="block">
-            {titleStart}Ford{" "}
-            <span 
-              className={`inline-block min-w-[180px] text-center transition-opacity duration-400 ease-in-out ${
-                isTransitioning ? 'opacity-0' : 'opacity-100'
-              }`}
-            >
-              {FORD_MODELS[currentModelIndex]}
-            </span>
-            {titleEnd}
+          <span 
+            className={`block transition-opacity duration-400 ease-in-out ${
+              isTransitioning ? 'opacity-0' : 'opacity-100'
+            }`}
+          >
+            {titleStart}Ford {FORD_MODELS[currentModelIndex]}{titleEnd}
           </span>
           <span className="block text-xl md:text-2xl mt-4 text-gray-600 font-normal">
             {t.hero.subtitle}
