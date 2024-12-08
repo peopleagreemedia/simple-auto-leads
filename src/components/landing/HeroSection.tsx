@@ -1,7 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/utils/translations";
 import { useState, useEffect, useRef } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Loader2 } from "lucide-react";
 
 const FORD_MODELS = [
   "Bronco",
@@ -34,6 +34,7 @@ export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [showModels, setShowModels] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const intervalRef = useRef<number>();
 
   useEffect(() => {
@@ -62,13 +63,18 @@ export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
 
   const handleModelClick = (model: string) => {
     console.log("Selected model in HeroSection:", model);
+    setIsLoading(true);
     onModelSelect(model);
     setShowModels(false);
-    // Scroll to phone preview section for confirmation
-    const previewSection = document.querySelector('#phone-preview');
-    if (previewSection) {
-      previewSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    
+    // Add loading state before scrolling
+    setTimeout(() => {
+      const previewSection = document.querySelector('#phone-preview');
+      if (previewSection) {
+        previewSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => setIsLoading(false), 600);
+      }
+    }, 300);
   };
 
   const titleStart = t.hero.title.split("Ford")[0];
@@ -100,11 +106,21 @@ export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
         
         <button
           onClick={() => setShowModels(!showModels)}
-          className="group relative inline-flex items-center justify-center gap-2 bg-ford-blue text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden"
+          disabled={isLoading}
+          className="group relative inline-flex items-center justify-center gap-2 bg-ford-blue text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden disabled:opacity-80"
         >
           <span className="relative z-10 flex items-center gap-2">
-            Explore Models
-            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            {isLoading ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                Loading...
+              </>
+            ) : (
+              <>
+                Explore Models
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </>
+            )}
           </span>
           <div className="absolute inset-0 bg-gradient-to-r from-ford-blue/0 via-white/10 to-ford-blue/0 group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
         </button>
@@ -118,13 +134,18 @@ export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
                   <button
                     key={model}
                     onClick={() => handleModelClick(model)}
-                    className="group text-left p-4 hover:bg-gray-50 rounded-lg transition-all duration-200 border-2 border-gray-100 hover:border-ford-blue relative overflow-hidden"
+                    disabled={isLoading}
+                    className="group text-left p-4 hover:bg-gray-50 rounded-lg transition-all duration-200 border-2 border-gray-100 hover:border-ford-blue relative overflow-hidden disabled:opacity-80"
                   >
                     <span className="relative z-10 flex justify-between items-center">
                       <span className="text-lg font-medium text-gray-700 group-hover:text-ford-blue">
                         Ford {model}
                       </span>
-                      <ChevronRight className="w-5 h-5 text-ford-blue opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                      {isLoading ? (
+                        <Loader2 className="w-5 h-5 animate-spin text-ford-blue" />
+                      ) : (
+                        <ChevronRight className="w-5 h-5 text-ford-blue opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                      )}
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ford-blue/5 to-transparent group-hover:translate-x-full transition-transform duration-500 ease-in-out" />
                   </button>
