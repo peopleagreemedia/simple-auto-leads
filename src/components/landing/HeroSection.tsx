@@ -79,16 +79,22 @@ export const HeroSection = () => {
       <div className="max-w-3xl mx-auto space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold mb-8 text-ford-blue leading-tight">
           <span 
-            className={`block transition-all duration-300 ease-in-out ${
-              isTransitioning 
+            className={`block transition-all duration-300 ease-in-out cursor-pointer 
+              group relative inline-flex items-center justify-center
+              ${isTransitioning 
                 ? 'opacity-0 scale-90 -translate-y-2 transform' 
                 : 'opacity-100 scale-100 translate-y-0 transform'
-            }`}
+              }
+              hover:text-ford-blue/90 hover:scale-[1.02]
+            `}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onClick={() => setShowModels(!showModels)}
           >
             {titleStart}Ford {FORD_MODELS[currentModelIndex]}{titleEnd}
+            <span className="absolute -right-8 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              ↓
+            </span>
           </span>
           <span className="block text-xl md:text-2xl mt-4 text-gray-600 font-normal">
             {t.hero.subtitle}
