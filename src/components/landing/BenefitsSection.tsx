@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/utils/translations";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, ChevronDown } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 interface BenefitsSectionProps {
   selectedModel: string;
@@ -9,15 +10,27 @@ interface BenefitsSectionProps {
 export const BenefitsSection = ({ selectedModel }: BenefitsSectionProps) => {
   const { language } = useLanguage();
   const t = translations[language];
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (selectedModel && sectionRef.current) {
+      const timer = setTimeout(() => {
+        sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [selectedModel]);
 
   return (
-    <section className="relative">
+    <section ref={sectionRef} className="relative">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-ford-blue mb-4">
-          New Dashboard Experience & Benefits
+          {selectedModel ? `New Dashboard Experience for Your ${selectedModel}` : "New Dashboard Experience & Benefits"}
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Experience a better way to find and purchase your next Ford vehicle
+          {selectedModel 
+            ? `Experience a better way to find and purchase your new Ford ${selectedModel}`
+            : "Experience a better way to find and purchase your next Ford vehicle"}
         </p>
       </div>
       
@@ -34,6 +47,18 @@ export const BenefitsSection = ({ selectedModel }: BenefitsSectionProps) => {
           </div>
         ))}
       </div>
+
+      {selectedModel && (
+        <div className="mt-8 text-center">
+          <a 
+            href="#contact-form" 
+            className="inline-flex items-center gap-2 text-ford-blue hover:text-ford-blue/80 font-medium text-lg group"
+          >
+            Ready to get started with your {selectedModel}?
+            <ChevronDown className="h-5 w-5 group-hover:translate-y-1 transition-transform" />
+          </a>
+        </div>
+      )}
     </section>
   );
 };

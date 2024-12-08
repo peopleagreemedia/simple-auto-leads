@@ -17,14 +17,14 @@ export const ModelConfirmation = ({ model, onConfirm, onChooseDifferent }: Model
           Is this the Ford {model} you're interested in?
         </h3>
         <p className="text-lg text-gray-700">
-          Take a moment to confirm if this model matches your preferences
+          Take a moment to confirm if this model matches your preferences. We'll show you its key benefits next.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button
             onClick={onConfirm}
             className="w-full sm:w-auto px-8 py-4 bg-ford-blue text-white rounded-xl hover:bg-ford-blue/90 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg font-semibold"
           >
-            Yes, Get Started →
+            Yes, Show Me Benefits →
           </button>
           <button
             onClick={onChooseDifferent}
