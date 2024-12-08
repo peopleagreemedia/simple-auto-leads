@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/utils/translations";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ModelSelector } from "./preview/ModelSelector";
 import { ModelConfirmation } from "./preview/ModelConfirmation";
 import { InitialPreview } from "./preview/InitialPreview";
@@ -16,6 +16,13 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
   const [isConfirming, setIsConfirming] = useState(false);
   const [localSelectedModel, setLocalSelectedModel] = useState(selectedModel);
 
+  useEffect(() => {
+    if (selectedModel) {
+      setLocalSelectedModel(selectedModel);
+      setIsConfirming(true);
+    }
+  }, [selectedModel]);
+
   const handleModelClick = (model: string) => {
     console.log("Model clicked in PhonePreview:", model);
     setLocalSelectedModel(model);
@@ -25,10 +32,7 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
 
   const handleConfirm = () => {
     setIsConfirming(false);
-    const formElement = document.querySelector('#contact-form');
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Benefits section will auto-scroll due to its useEffect
   };
 
   const handleChooseDifferent = () => {
@@ -37,12 +41,12 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
   };
 
   return (
-    <section className="mb-16 bg-white rounded-2xl p-8 shadow-lg">
+    <section id="phone-preview" className="mb-16 bg-white rounded-2xl p-8 shadow-lg">
       <h2 className="text-2xl font-bold text-ford-blue mb-6 text-center">
         {selectedModel ? `Preview of Your ${selectedModel}` : "Find Your Perfect Ford"}
       </h2>
       <div className="flex flex-col items-center text-center">
-        {!selectedModel && !isConfirming ? (
+        {!localSelectedModel && !isConfirming ? (
           <InitialPreview onClick={() => setShowModels(true)} />
         ) : isConfirming ? (
           <ModelConfirmation 

@@ -63,6 +63,11 @@ export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
     console.log("Selected model in HeroSection:", model);
     onModelSelect(model);
     setShowModels(false);
+    // Scroll to phone preview section for confirmation
+    const previewSection = document.querySelector('#phone-preview');
+    if (previewSection) {
+      previewSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const titleStart = t.hero.title.split("Ford")[0];
