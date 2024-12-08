@@ -32,6 +32,7 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
   const [showModels, setShowModels] = useState(false);
 
   const handleModelClick = (model: string) => {
+    setShowModels(false); // Close the dialog after selection
     // Find the form element and scroll to it
     const formElement = document.querySelector('#contact-form');
     if (formElement) {
