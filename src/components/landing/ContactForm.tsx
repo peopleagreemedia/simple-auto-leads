@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/utils/translations";
+import { ArrowRight } from "lucide-react";
 
 interface ContactFormProps {
   selectedModel: string;
@@ -88,9 +89,19 @@ export const ContactForm = ({ selectedModel }: ContactFormProps) => {
           <Button 
             type="submit"
             disabled={isLoading}
-            className="w-full bg-ford-green hover:bg-ford-green/90 text-white px-8 py-6 text-lg rounded-full shadow-lg transition-all hover:scale-105 hover:shadow-xl disabled:opacity-70"
+            className="w-full group bg-ford-green hover:bg-ford-green/90 text-white px-8 py-6 text-lg rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl disabled:opacity-70 relative overflow-hidden"
           >
-            {isLoading ? t.form.loadingButton : t.form.submitButton}
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              {isLoading ? (
+                <div className="animate-spin rounded-full h-5 w-5 border-2 border-white/20 border-t-white" />
+              ) : (
+                <>
+                  {t.form.submitButton}
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </>
+              )}
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-ford-green/0 via-white/10 to-ford-green/0 group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
           </Button>
           <p className="text-sm text-gray-500 text-center">
             {t.form.privacyNote}
