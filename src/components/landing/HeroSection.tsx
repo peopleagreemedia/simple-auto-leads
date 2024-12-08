@@ -22,7 +22,11 @@ const FORD_MODELS = [
   "Transit Passenger Wagon"
 ];
 
-export const HeroSection = () => {
+interface HeroSectionProps {
+  onModelSelect: (model: string) => void;
+}
+
+export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
   const { language } = useLanguage();
   const t = translations[language];
   const [currentModelIndex, setCurrentModelIndex] = useState(0);
@@ -56,19 +60,14 @@ export const HeroSection = () => {
   }, [isPaused]);
 
   const handleModelClick = (model: string) => {
+    onModelSelect(model);
+    setShowModels(false);
+    
     // Find the form element and scroll to it
     const formElement = document.querySelector('#contact-form');
     if (formElement) {
       formElement.scrollIntoView({ behavior: 'smooth' });
     }
-    
-    // Pre-fill a hidden input or update state in the contact form
-    const modelInput = document.querySelector<HTMLInputElement>('input[name="selectedModel"]');
-    if (modelInput) {
-      modelInput.value = model;
-    }
-    
-    setShowModels(false);
   };
 
   const titleStart = t.hero.title.split("Ford")[0];
