@@ -20,53 +20,53 @@ const LandingPage = () => {
     <div className="min-h-screen bg-gradient-to-b from-white via-gray-50/50 to-white text-gray-900">
       <Header />
 
-      <main className="relative">
-        {/* Hero Section with optimized spacing */}
-        <div className="container mx-auto px-4 py-20">
+      <main className="relative overflow-hidden">
+        {/* Hero Section with optimized mobile spacing */}
+        <div className="container mx-auto px-4 py-12 md:py-20">
           <HeroSection onModelSelect={handleModelSelect} />
         </div>
 
-        {/* Phone Preview with enhanced emphasis */}
-        <div className="bg-gradient-to-b from-gray-50/80 to-white py-24 relative">
+        {/* Phone Preview with enhanced mobile layout */}
+        <div className="bg-gradient-to-b from-gray-50/80 to-white py-16 md:py-24 relative">
           <div className="absolute inset-0 bg-ford-blue/[0.02] transform -skew-y-3" />
           <div className="container mx-auto px-4 relative">
             <PhonePreview selectedModel={selectedModel} />
           </div>
         </div>
 
-        {/* Benefits with refined separator */}
-        <div className="relative py-28">
+        {/* Benefits with mobile-optimized spacing */}
+        <div className="relative py-20 md:py-28">
           <div className="absolute inset-0 bg-ford-blue/[0.03] skew-y-2 transform -z-10" />
           <div className="container mx-auto px-4">
             <BenefitsSection selectedModel={selectedModel} />
           </div>
         </div>
 
-        {/* Features with improved spacing */}
-        <div className="py-24 bg-white relative overflow-hidden">
+        {/* Features with improved mobile layout */}
+        <div className="py-16 md:py-24 bg-white relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-transparent" />
           <div className="container mx-auto px-4 relative">
             <FeaturesSection selectedModel={selectedModel} />
           </div>
         </div>
 
-        {/* Setup Steps with subtle background */}
-        <div className="relative py-28 bg-gradient-to-b from-white to-gray-50/70">
+        {/* Setup Steps with mobile-friendly spacing */}
+        <div className="relative py-20 md:py-28 bg-gradient-to-b from-white to-gray-50/70">
           <div className="container mx-auto px-4">
             <SetupSteps selectedModel={selectedModel} />
           </div>
         </div>
 
-        {/* Contact Form with enhanced separation */}
-        <div className="py-24 bg-ford-blue/[0.03] relative">
+        {/* Contact Form with mobile optimization */}
+        <div className="py-16 md:py-24 bg-ford-blue/[0.03] relative">
           <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent" />
           <div className="container mx-auto px-4 relative">
             <ContactForm selectedModel={selectedModel} />
           </div>
         </div>
 
-        {/* Testimonial Section */}
-        <div className="py-28 bg-white relative">
+        {/* Testimonial Section with mobile spacing */}
+        <div className="py-20 md:py-28 bg-white relative">
           <div className="absolute inset-0 bg-gradient-to-b from-gray-50/30 to-transparent" />
           <div className="container mx-auto px-4 relative">
             <TestimonialSection />
