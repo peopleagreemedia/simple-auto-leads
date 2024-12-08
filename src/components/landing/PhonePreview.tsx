@@ -1,22 +1,29 @@
-export const PhonePreview = () => (
-  <section className="mb-16 relative">
-    <div className="max-w-sm mx-auto">
-      <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
-        <div className="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
-        <div className="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
-        <div className="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
-        <div className="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
-        <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-          <img 
-            src="https://i.imgur.com/1485827404703-89b55fcc595e.jpg" 
-            className="w-full h-full object-cover"
-            alt="Ford research app preview"
-          />
-        </div>
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/utils/translations";
+
+interface PhonePreviewProps {
+  selectedModel: string;
+}
+
+export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  return (
+    <section className="mb-16 bg-white rounded-2xl p-8 shadow-lg">
+      <h2 className="text-2xl font-bold text-ford-blue mb-6">
+        {selectedModel ? `Preview of Your ${selectedModel}` : "Preview of Your Vehicle"}
+      </h2>
+      <div className="flex justify-center">
+        <img
+          src={`/images/${selectedModel.toLowerCase()}.png`}
+          alt={`Preview of ${selectedModel}`}
+          className="w-full max-w-md"
+        />
       </div>
-      
-      <div className="absolute -z-10 w-[200px] h-[200px] bg-ford-blue/10 rounded-full blur-3xl top-1/2 -translate-y-1/2 left-1/4 -translate-x-1/2"></div>
-      <div className="absolute -z-10 w-[200px] h-[200px] bg-ford-green/10 rounded-full blur-3xl top-1/2 -translate-y-1/2 right-1/4 translate-x-1/2"></div>
-    </div>
-  </section>
-);
+      <p className="text-gray-600 mt-4">
+        {selectedModel ? t.phonePreview[selectedModel] : t.phonePreview.default}
+      </p>
+    </section>
+  );
+};
