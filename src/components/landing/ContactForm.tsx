@@ -5,7 +5,11 @@ import { useToast } from "@/components/ui/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/utils/translations";
 
-export const ContactForm = () => {
+interface ContactFormProps {
+  selectedModel: string;
+}
+
+export const ContactForm = ({ selectedModel }: ContactFormProps) => {
   const { language } = useLanguage();
   const t = translations[language];
   
@@ -13,7 +17,7 @@ export const ContactForm = () => {
     name: "",
     email: "",
     phone: "",
-    selectedModel: ""
+    selectedModel: selectedModel || ""
   });
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
