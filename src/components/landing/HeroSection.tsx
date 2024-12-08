@@ -94,11 +94,11 @@ export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
             onMouseLeave={() => setIsPaused(false)}
             onClick={() => setShowModels(!showModels)}
           >
-            Get Your Personal Ford {FORD_MODELS[currentModelIndex]} Dashboard
+            Let Us Set Up Your Personal Ford {FORD_MODELS[currentModelIndex]} Experience
           </span>
         </h1>
         <p className="text-xl md:text-2xl mb-8 text-gray-700 leading-relaxed max-w-2xl mx-auto">
-          Select your preferred Ford model to access a customized dashboard with pricing, features, and expert guidance - all in one place.
+          Our professional staff will personally set up your custom dashboard with everything you need - from pricing and features to expert guidance, all in one place.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -115,7 +115,7 @@ export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
                 </>
               ) : (
                 <>
-                  Choose Your Model
+                  Start Your Setup
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </>
               )}
@@ -132,7 +132,7 @@ export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
             }}
             className="text-ford-blue hover:text-ford-blue/80 font-medium flex items-center gap-2 group"
           >
-            View Demo Dashboard
+            View Sample Dashboard
             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
