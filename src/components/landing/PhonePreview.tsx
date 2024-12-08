@@ -84,26 +84,29 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
             </p>
           </div>
         ) : isConfirming ? (
-          <div className="space-y-6">
+          <div className="space-y-8 max-w-2xl mx-auto p-6 bg-gray-50 rounded-xl border-2 border-ford-blue animate-fade-in">
             <img
               src={`/images/${selectedModel.toLowerCase()}.png`}
               alt={`Preview of ${selectedModel}`}
-              className="w-full max-w-md mx-auto"
+              className="w-full max-w-md mx-auto hover:scale-105 transition-transform duration-300"
             />
-            <div className="space-y-4">
-              <p className="text-lg text-gray-700">
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-ford-blue">
                 Is this the Ford {selectedModel} you're interested in?
+              </h3>
+              <p className="text-lg text-gray-700">
+                Take a moment to confirm if this model matches your preferences
               </p>
-              <div className="flex gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <button
                   onClick={handleConfirm}
-                  className="px-6 py-2 bg-ford-blue text-white rounded-lg hover:bg-ford-blue/90 transition-colors"
+                  className="w-full sm:w-auto px-8 py-4 bg-ford-blue text-white rounded-xl hover:bg-ford-blue/90 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg font-semibold"
                 >
-                  Yes, Continue
+                  Yes, Get Started →
                 </button>
                 <button
                   onClick={handleChooseDifferent}
-                  className="px-6 py-2 border border-ford-blue text-ford-blue rounded-lg hover:bg-gray-50 transition-colors"
+                  className="w-full sm:w-auto px-8 py-4 border-2 border-ford-blue text-ford-blue rounded-xl hover:bg-gray-100 transition-colors text-lg font-semibold"
                 >
                   Choose Different Model
                 </button>
