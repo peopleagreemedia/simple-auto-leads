@@ -40,7 +40,7 @@ export const HeroSection = () => {
               prevIndex === FORD_MODELS.length - 1 ? 0 : prevIndex + 1
             );
             setIsTransitioning(false);
-          }, 200);
+          }, 300); // Increased duration for smoother transition
         }
       }, 3000);
     };
@@ -62,10 +62,10 @@ export const HeroSection = () => {
       <div className="max-w-3xl mx-auto space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold mb-8 text-ford-blue leading-tight">
           <span 
-            className={`block transition-all duration-400 ease-in-out ${
+            className={`block transition-all duration-300 ease-in-out ${
               isTransitioning 
-                ? 'opacity-0 scale-95 transform' 
-                : 'opacity-100 scale-100 transform'
+                ? 'opacity-0 scale-90 -translate-y-2 transform' 
+                : 'opacity-100 scale-100 translate-y-0 transform'
             }`}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
