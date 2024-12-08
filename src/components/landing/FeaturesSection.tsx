@@ -49,7 +49,7 @@ export const FeaturesSection = ({ selectedModel }: FeaturesSectionProps) => {
               {t.features.creditScore.title}
             </h3>
             <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-              {getPersonalizedDescription(t.features.creditScore.description)}
+              Get accurate payments and financing options with our enhanced tools - handle more of your purchase online
             </p>
           </div>
         </div>
