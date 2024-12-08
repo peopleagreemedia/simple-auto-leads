@@ -91,12 +91,6 @@ export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
             onClick={() => setShowModels(!showModels)}
           >
             {titleStart}Ford {FORD_MODELS[currentModelIndex]}{titleEnd}
-            <span className="absolute -right-8 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-              ↓
-            </span>
-          </span>
-          <span className="block text-xl md:text-2xl mt-4 text-gray-600 font-normal">
-            {t.hero.subtitle}
           </span>
         </h1>
         <p className="text-xl md:text-2xl mb-8 text-gray-700 leading-relaxed max-w-2xl mx-auto">
