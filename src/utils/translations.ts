@@ -59,6 +59,10 @@ export const translations = {
     testimonial: {
       quote: "The personal dashboard made finding my perfect Ford so easy. The consultant was incredibly helpful during setup!",
       author: "- Sarah M., Happy Ford Owner"
+    },
+    preview: {
+      default: "Select a vehicle model to see detailed information",
+      custom: (model: string) => `Get detailed information about your ${model} and connect with our experts`
     }
   },
   ES: {
@@ -121,6 +125,10 @@ export const translations = {
     testimonial: {
       quote: "El panel personal hizo que encontrar mi Ford perfecto fuera muy fácil. ¡El consultor fue increíblemente útil durante la configuración!",
       author: "- Sara M., Propietaria Feliz de Ford"
+    },
+    preview: {
+      default: "Seleccione un modelo de vehículo para ver información detallada",
+      custom: (model: string) => `Obtenga información detallada sobre su ${model} y conéctese con nuestros expertos`
     }
   }
 };

@@ -16,13 +16,15 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
       </h2>
       <div className="flex justify-center">
         <img
-          src={`/images/${selectedModel.toLowerCase()}.png`}
-          alt={`Preview of ${selectedModel}`}
+          src={selectedModel ? `/images/${selectedModel.toLowerCase()}.png` : '/placeholder.svg'}
+          alt={selectedModel ? `Preview of ${selectedModel}` : 'Vehicle Preview'}
           className="w-full max-w-md"
         />
       </div>
       <p className="text-gray-600 mt-4">
-        {selectedModel ? t.phonePreview[selectedModel] : t.phonePreview.default}
+        {selectedModel 
+          ? `Get detailed information about your ${selectedModel} and connect with our experts`
+          : "Select a vehicle model to see detailed information"}
       </p>
     </section>
   );
