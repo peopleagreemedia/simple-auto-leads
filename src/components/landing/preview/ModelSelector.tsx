@@ -37,19 +37,22 @@ export const ModelSelector = ({ onModelSelect, onClose }: ModelSelectorProps) =>
       onClick={onClose}
     >
       <div 
-        className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto animate-scale-in" 
+        className="bg-white rounded-xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto animate-scale-in" 
         onClick={e => e.stopPropagation()}
       >
-        <h3 className="text-2xl font-bold text-ford-blue mb-4">Select a Model to Get Started</h3>
+        <h3 className="text-2xl font-bold text-ford-blue mb-6">Select Your Ford Model</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {FORD_MODELS.map((model) => (
             <button
               key={model}
               onClick={() => handleModelClick(model)}
-              className="text-left p-4 hover:bg-gray-50 rounded-lg transition-colors duration-200 border border-gray-100 hover:border-ford-blue group"
+              className="text-left p-6 hover:bg-gray-50 rounded-lg transition-all duration-200 border-2 border-gray-100 hover:border-ford-blue group"
             >
-              <span className="text-lg font-medium text-gray-700 group-hover:text-ford-blue">
+              <span className="text-lg font-medium text-gray-700 group-hover:text-ford-blue block">
                 Ford {model}
+              </span>
+              <span className="text-sm text-gray-500 group-hover:text-ford-blue/80 mt-1 block">
+                View Details →
               </span>
             </button>
           ))}
