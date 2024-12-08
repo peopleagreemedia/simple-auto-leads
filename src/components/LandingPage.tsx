@@ -11,12 +11,17 @@ import { useState } from 'react';
 const LandingPage = () => {
   const [selectedModel, setSelectedModel] = useState<string>("");
 
+  const handleModelSelect = (model: string) => {
+    console.log("Selected model in LandingPage:", model); // Debug log
+    setSelectedModel(model);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-900 animate-fade-in">
       <Header />
 
       <main className="container mx-auto px-4 space-y-24 py-16 max-w-6xl">
-        <HeroSection onModelSelect={setSelectedModel} />
+        <HeroSection onModelSelect={handleModelSelect} />
         <PhonePreview selectedModel={selectedModel} />
         <BenefitsSection selectedModel={selectedModel} />
         <FeaturesSection selectedModel={selectedModel} />

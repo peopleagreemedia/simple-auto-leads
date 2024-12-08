@@ -60,6 +60,7 @@ export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
   }, [isPaused]);
 
   const handleModelClick = (model: string) => {
+    console.log("Selected model in HeroSection:", model); // Debug log
     onModelSelect(model);
     setShowModels(false);
     
