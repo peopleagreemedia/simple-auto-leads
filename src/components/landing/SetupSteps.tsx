@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/utils/translations";
-import { PhoneCall, MessageSquare, Laptop } from "lucide-react";
+import { PhoneCall, MessageSquare, Laptop, ArrowDown } from "lucide-react";
 
 interface SetupStepsProps {
   selectedModel: string;
@@ -15,6 +15,13 @@ export const SetupSteps = ({ selectedModel }: SetupStepsProps) => {
     <MessageSquare className="w-8 h-8" />,
     <Laptop className="w-8 h-8" />
   ];
+
+  const scrollToContact = () => {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const getPersonalizedDescription = (text: string) => {
     return selectedModel ? text.replace(/your Ford|your vehicle/gi, `your ${selectedModel}`) : text;
@@ -55,6 +62,16 @@ export const SetupSteps = ({ selectedModel }: SetupStepsProps) => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-16 text-center">
+        <button
+          onClick={scrollToContact}
+          className="group inline-flex items-center gap-2 bg-ford-green text-white px-8 py-4 rounded-full hover:bg-ford-green/90 transition-all duration-300 hover:scale-105"
+        >
+          Start Your Journey Now
+          <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+        </button>
       </div>
     </section>
   );
