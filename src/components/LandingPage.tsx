@@ -17,54 +17,58 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white text-gray-900">
+    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50/50 to-white text-gray-900">
       <Header />
 
       <main className="relative">
-        {/* Hero Section with increased vertical spacing */}
-        <div className="container mx-auto px-4 py-24">
+        {/* Hero Section with optimized spacing */}
+        <div className="container mx-auto px-4 py-20">
           <HeroSection onModelSelect={handleModelSelect} />
         </div>
 
-        {/* Phone Preview with background accent */}
-        <div className="bg-gradient-to-b from-gray-50 to-white py-32">
-          <div className="container mx-auto px-4">
+        {/* Phone Preview with enhanced emphasis */}
+        <div className="bg-gradient-to-b from-gray-50/80 to-white py-24 relative">
+          <div className="absolute inset-0 bg-ford-blue/[0.02] transform -skew-y-3" />
+          <div className="container mx-auto px-4 relative">
             <PhonePreview selectedModel={selectedModel} />
           </div>
         </div>
 
-        {/* Benefits with subtle separator */}
-        <div className="relative py-32">
-          <div className="absolute inset-0 bg-ford-blue/5 skew-y-3 transform -z-10" />
+        {/* Benefits with refined separator */}
+        <div className="relative py-28">
+          <div className="absolute inset-0 bg-ford-blue/[0.03] skew-y-2 transform -z-10" />
           <div className="container mx-auto px-4">
             <BenefitsSection selectedModel={selectedModel} />
           </div>
         </div>
 
-        {/* Features with increased spacing */}
-        <div className="py-32 bg-white">
-          <div className="container mx-auto px-4">
+        {/* Features with improved spacing */}
+        <div className="py-24 bg-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-transparent" />
+          <div className="container mx-auto px-4 relative">
             <FeaturesSection selectedModel={selectedModel} />
           </div>
         </div>
 
-        {/* Setup Steps with background accent */}
-        <div className="relative py-32 bg-gradient-to-b from-white to-gray-50">
+        {/* Setup Steps with subtle background */}
+        <div className="relative py-28 bg-gradient-to-b from-white to-gray-50/70">
           <div className="container mx-auto px-4">
             <SetupSteps selectedModel={selectedModel} />
           </div>
         </div>
 
-        {/* Contact Form with visual separation */}
-        <div className="py-32 bg-ford-blue/5">
-          <div className="container mx-auto px-4">
+        {/* Contact Form with enhanced separation */}
+        <div className="py-24 bg-ford-blue/[0.03] relative">
+          <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent" />
+          <div className="container mx-auto px-4 relative">
             <ContactForm selectedModel={selectedModel} />
           </div>
         </div>
 
         {/* Testimonial Section */}
-        <div className="py-32 bg-white">
-          <div className="container mx-auto px-4">
+        <div className="py-28 bg-white relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-50/30 to-transparent" />
+          <div className="container mx-auto px-4 relative">
             <TestimonialSection />
           </div>
         </div>
