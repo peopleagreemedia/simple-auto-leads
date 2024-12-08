@@ -12,7 +12,8 @@ export const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: ""
+    phone: "",
+    selectedModel: ""
   });
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
@@ -27,11 +28,11 @@ export const ContactForm = () => {
     
     toast({
       title: "Thanks for your interest!",
-      description: "We'll text you shortly to schedule your consultation.",
+      description: `We'll text you shortly to schedule your consultation${formData.selectedModel ? ` about the Ford ${formData.selectedModel}` : ''}.`,
     });
     
     setIsLoading(false);
-    setFormData({ name: "", email: "", phone: "" });
+    setFormData({ name: "", email: "", phone: "", selectedModel: "" });
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +41,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <section className="mb-16">
+    <section className="mb-16" id="contact-form">
       <div className="max-w-md mx-auto bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold text-ford-blue mb-2">{t.form.title}</h2>
@@ -73,6 +74,12 @@ export const ContactForm = () => {
             onChange={handleInputChange}
             required
             className="text-lg py-6 bg-gray-50 border-gray-200 focus:border-ford-green focus:ring-ford-green"
+          />
+          <Input
+            type="hidden"
+            name="selectedModel"
+            value={formData.selectedModel}
+            onChange={handleInputChange}
           />
           <Button 
             type="submit"

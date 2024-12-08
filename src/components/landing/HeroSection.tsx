@@ -28,6 +28,7 @@ export const HeroSection = () => {
   const [currentModelIndex, setCurrentModelIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [showModels, setShowModels] = useState(false);
   const intervalRef = useRef<number>();
 
   useEffect(() => {
@@ -40,7 +41,7 @@ export const HeroSection = () => {
               prevIndex === FORD_MODELS.length - 1 ? 0 : prevIndex + 1
             );
             setIsTransitioning(false);
-          }, 300); // Increased duration for smoother transition
+          }, 300);
         }
       }, 3000);
     };
@@ -53,6 +54,22 @@ export const HeroSection = () => {
       }
     };
   }, [isPaused]);
+
+  const handleModelClick = (model: string) => {
+    // Find the form element and scroll to it
+    const formElement = document.querySelector('#contact-form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Pre-fill a hidden input or update state in the contact form
+    const modelInput = document.querySelector<HTMLInputElement>('input[name="selectedModel"]');
+    if (modelInput) {
+      modelInput.value = model;
+    }
+    
+    setShowModels(false);
+  };
 
   const titleStart = t.hero.title.split("Ford")[0];
   const titleEnd = t.hero.title.split("Ford")[1];
@@ -69,6 +86,7 @@ export const HeroSection = () => {
             }`}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
+            onClick={() => setShowModels(!showModels)}
           >
             {titleStart}Ford {FORD_MODELS[currentModelIndex]}{titleEnd}
           </span>
@@ -79,6 +97,27 @@ export const HeroSection = () => {
         <p className="text-xl md:text-2xl mb-8 text-gray-700 leading-relaxed max-w-2xl mx-auto">
           {t.hero.description}
         </p>
+        
+        {showModels && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowModels(false)}>
+            <div className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+              <h3 className="text-2xl font-bold text-ford-blue mb-4">Select a Model to Get Started</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {FORD_MODELS.map((model) => (
+                  <button
+                    key={model}
+                    onClick={() => handleModelClick(model)}
+                    className="text-left p-4 hover:bg-gray-50 rounded-lg transition-colors duration-200 border border-gray-100 hover:border-ford-blue group"
+                  >
+                    <span className="text-lg font-medium text-gray-700 group-hover:text-ford-blue">
+                      Ford {model}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
