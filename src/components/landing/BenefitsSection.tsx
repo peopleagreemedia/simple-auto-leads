@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/utils/translations";
-import { CheckCircle, ChevronDown } from "lucide-react";
+import { CheckCircle, ChevronDown, ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 interface BenefitsSectionProps {
@@ -13,9 +13,16 @@ export const BenefitsSection = ({ selectedModel }: BenefitsSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // Remove the automatic scrolling from here since it will be triggered by PhonePreview's handleConfirm
     console.log("Benefits section mounted/updated with model:", selectedModel);
   }, [selectedModel]);
+
+  const scrollToFeatures = () => {
+    const featuresSection = document.getElementById('features-section');
+    if (featuresSection) {
+      console.log("Scrolling to features section");
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section ref={sectionRef} className="relative" id="benefits-section">
@@ -42,6 +49,21 @@ export const BenefitsSection = ({ selectedModel }: BenefitsSectionProps) => {
             </span>
           </div>
         ))}
+      </div>
+
+      <div className="mt-12 flex flex-col items-center space-y-6 animate-fade-in">
+        <button
+          onClick={scrollToFeatures}
+          className="group inline-flex items-center gap-3 bg-ford-blue text-white px-8 py-4 rounded-full hover:bg-ford-blue/90 transition-all duration-300 hover:scale-105"
+        >
+          Explore Key Features
+          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </button>
+
+        <div className="text-gray-500 flex flex-col items-center animate-bounce">
+          <span className="text-sm mb-2">Scroll to learn more</span>
+          <ChevronDown className="w-5 h-5" />
+        </div>
       </div>
 
       {selectedModel && (
