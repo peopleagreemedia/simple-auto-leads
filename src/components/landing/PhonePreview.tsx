@@ -15,29 +15,34 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
   const [showModels, setShowModels] = useState(false);
   const [isConfirming, setIsConfirming] = useState(false);
   const [localSelectedModel, setLocalSelectedModel] = useState(selectedModel);
+  const [hasConfirmed, setHasConfirmed] = useState(false);
 
   useEffect(() => {
-    if (selectedModel) {
+    if (selectedModel && !hasConfirmed) {
       setLocalSelectedModel(selectedModel);
       setIsConfirming(true);
     }
-  }, [selectedModel]);
+  }, [selectedModel, hasConfirmed]);
 
   const handleModelClick = (model: string) => {
     console.log("Model clicked in PhonePreview:", model);
     setLocalSelectedModel(model);
     setShowModels(false);
     setIsConfirming(true);
+    setHasConfirmed(false);
   };
 
   const handleConfirm = () => {
+    console.log("Model confirmed in PhonePreview:", localSelectedModel);
     setIsConfirming(false);
+    setHasConfirmed(true);
     // Benefits section will auto-scroll due to its useEffect
   };
 
   const handleChooseDifferent = () => {
     setIsConfirming(false);
     setShowModels(true);
+    setHasConfirmed(false);
   };
 
   return (
