@@ -10,16 +10,15 @@ export const InitialPreview = ({ onClick }: InitialPreviewProps) => {
         onClick={onClick}
       >
         <div className="relative w-full max-w-3xl mx-auto rounded-lg overflow-hidden mb-4">
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            className="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
-          >
-            <source src="/ford-preview.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <div className="relative pb-[56.25%] h-0">
+            <iframe
+              src="https://player.vimeo.com/video/1037104322?h=0&autoplay=1&loop=1&muted=1&background=1"
+              className="absolute top-0 left-0 w-full h-full rounded-lg group-hover:scale-105 transition-transform duration-300"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end justify-center p-8">
             <p className="text-white text-xl font-medium group-hover:scale-105 transition-transform duration-300">
               Find Your Perfect Ford
