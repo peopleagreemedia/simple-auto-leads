@@ -77,9 +77,6 @@ export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
     }, 300);
   };
 
-  const titleStart = t.hero.title.split("Ford")[0];
-  const titleEnd = t.hero.title.split("Ford")[1];
-
   return (
     <section className="text-center mb-16">
       <div className="max-w-3xl mx-auto space-y-8">
@@ -97,33 +94,48 @@ export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
             onMouseLeave={() => setIsPaused(false)}
             onClick={() => setShowModels(!showModels)}
           >
-            {titleStart}Ford {FORD_MODELS[currentModelIndex]}{titleEnd}
+            Get Your Personal Ford {FORD_MODELS[currentModelIndex]} Dashboard
           </span>
         </h1>
         <p className="text-xl md:text-2xl mb-8 text-gray-700 leading-relaxed max-w-2xl mx-auto">
-          {t.hero.description}
+          Select your preferred Ford model to access a customized dashboard with pricing, features, and expert guidance - all in one place.
         </p>
         
-        <button
-          onClick={() => setShowModels(!showModels)}
-          disabled={isLoading}
-          className="group relative inline-flex items-center justify-center gap-2 bg-ford-blue text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden disabled:opacity-80"
-        >
-          <span className="relative z-10 flex items-center gap-2">
-            {isLoading ? (
-              <>
-                <Loader2 className="w-5 h-5 animate-spin" />
-                Loading...
-              </>
-            ) : (
-              <>
-                Explore Models
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </>
-            )}
-          </span>
-          <div className="absolute inset-0 bg-gradient-to-r from-ford-blue/0 via-white/10 to-ford-blue/0 group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-        </button>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button
+            onClick={() => setShowModels(!showModels)}
+            disabled={isLoading}
+            className="group relative inline-flex items-center justify-center gap-2 bg-ford-blue text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden disabled:opacity-80"
+          >
+            <span className="relative z-10 flex items-center gap-2">
+              {isLoading ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Loading...
+                </>
+              ) : (
+                <>
+                  Choose Your Model
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </>
+              )}
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-ford-blue/0 via-white/10 to-ford-blue/0 group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+          </button>
+          
+          <button
+            onClick={() => {
+              const previewSection = document.querySelector('#phone-preview');
+              if (previewSection) {
+                previewSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="text-ford-blue hover:text-ford-blue/80 font-medium flex items-center gap-2 group"
+          >
+            View Demo Dashboard
+            <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
         
         {showModels && (
           <ModelModal 
