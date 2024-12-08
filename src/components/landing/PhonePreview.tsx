@@ -41,7 +41,7 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
 
   return (
     <section className="mb-16 bg-white rounded-2xl p-8 shadow-lg">
-      <h2 className="text-2xl font-bold text-ford-blue mb-6">
+      <h2 className="text-2xl font-bold text-ford-blue mb-6 text-center">
         {selectedModel ? `Preview of Your ${selectedModel}` : "Find Your Perfect Ford"}
       </h2>
       <div className="flex flex-col items-center text-center">
