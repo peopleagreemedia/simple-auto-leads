@@ -35,7 +35,7 @@ export const FeaturesSection = ({ selectedModel }: FeaturesSectionProps) => {
               {t.features.chatSupport.title}
             </h3>
             <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-              {getPersonalizedDescription(t.features.chatSupport.description)}
+              Chat with us on your time through the app - skip the high-pressure dealership experience
             </p>
           </div>
         </div>
