@@ -36,8 +36,8 @@ export const HeroSection = () => {
           prevIndex === FORD_MODELS.length - 1 ? 0 : prevIndex + 1
         );
         setIsTransitioning(false);
-      }, 200); // Half of the transition duration
-    }, 3000); // Change model every 3 seconds
+      }, 200);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -52,7 +52,7 @@ export const HeroSection = () => {
           <span className="block">
             {titleStart}Ford{" "}
             <span 
-              className={`inline-block transition-opacity duration-400 ease-in-out ${
+              className={`inline-block min-w-[280px] transition-opacity duration-400 ease-in-out ${
                 isTransitioning ? 'opacity-0' : 'opacity-100'
               }`}
             >
