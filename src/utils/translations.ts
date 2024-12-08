@@ -3,7 +3,7 @@ export const translations = {
     hero: {
       title: "Get Your Personal Ford Shopping Dashboard",
       subtitle: "Expert guidance and personalized recommendations, right on your phone",
-      description: "Start your journey to finding the perfect Ford with a simple consultation call. Our experts will set up your custom dashboard and guide you every step of the way."
+      description: "Start your journey to finding the perfect Ford. Our experts will set up your custom dashboard in our new app that can guide you every step of the way. No download required."
     },
     benefits: [
       "Get personalized vehicle recommendations",
@@ -69,7 +69,7 @@ export const translations = {
     hero: {
       title: "Obtén Tu Panel de Control Personal Ford",
       subtitle: "Orientación experta y recomendaciones personalizadas, directamente en tu teléfono",
-      description: "Comienza tu búsqueda del Ford perfecto con una simple llamada de consulta. Nuestros expertos configurarán tu panel personalizado y te guiarán en cada paso."
+      description: "Comienza tu búsqueda del Ford perfecto. Nuestros expertos configurarán tu panel personalizado en nuestra nueva aplicación que te guiará en cada paso. No requiere descarga."
     },
     benefits: [
       "Obtén recomendaciones personalizadas de vehículos",
