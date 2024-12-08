@@ -14,7 +14,7 @@ export const BenefitsSection = ({ selectedModel }: BenefitsSectionProps) => {
     <section className="relative">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-ford-blue mb-4">
-          Shopping Experience Benefits
+          New Dashboard Experience & Benefits
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Experience a better way to find and purchase your next Ford vehicle
