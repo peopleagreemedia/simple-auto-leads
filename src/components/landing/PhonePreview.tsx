@@ -36,7 +36,14 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
     console.log("Model confirmed in PhonePreview:", localSelectedModel);
     setIsConfirming(false);
     setHasConfirmed(true);
-    // Benefits section will auto-scroll due to its useEffect
+    
+    // Add a delay before scrolling to benefits section
+    setTimeout(() => {
+      const benefitsSection = document.getElementById('benefits-section');
+      if (benefitsSection) {
+        benefitsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 500); // Half second delay to allow user to see the confirmation
   };
 
   const handleChooseDifferent = () => {

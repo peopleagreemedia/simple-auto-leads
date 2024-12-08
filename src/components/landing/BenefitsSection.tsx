@@ -13,16 +13,12 @@ export const BenefitsSection = ({ selectedModel }: BenefitsSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (selectedModel && sectionRef.current) {
-      const timer = setTimeout(() => {
-        sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-      }, 500);
-      return () => clearTimeout(timer);
-    }
+    // Remove the automatic scrolling from here since it will be triggered by PhonePreview's handleConfirm
+    console.log("Benefits section mounted/updated with model:", selectedModel);
   }, [selectedModel]);
 
   return (
-    <section ref={sectionRef} className="relative">
+    <section ref={sectionRef} className="relative" id="benefits-section">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-ford-blue mb-4">
           {selectedModel ? `New Dashboard Experience for Your ${selectedModel}` : "New Dashboard Experience & Benefits"}
