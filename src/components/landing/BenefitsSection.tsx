@@ -14,10 +14,10 @@ export const BenefitsSection = ({ selectedModel }: BenefitsSectionProps) => {
     <section className="relative">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-ford-blue mb-4">
-          {selectedModel ? `${selectedModel} Benefits` : "Vehicle Benefits"}
+          Shopping Experience Benefits
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Discover all the advantages that come with your Ford vehicle
+          Experience a better way to find and purchase your next Ford vehicle
         </p>
       </div>
       
@@ -29,9 +29,7 @@ export const BenefitsSection = ({ selectedModel }: BenefitsSectionProps) => {
           >
             <CheckCircle className="text-ford-green h-8 w-8 flex-shrink-0 group-hover:scale-110 transition-transform mt-1" />
             <span className="font-medium text-gray-700 leading-relaxed">
-              {selectedModel 
-                ? benefit.replace(/vehicle|Vehicle/, `${selectedModel}`)
-                : benefit}
+              {benefit}
             </span>
           </div>
         ))}
