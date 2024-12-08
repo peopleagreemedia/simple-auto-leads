@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { ModelSelector } from "./preview/ModelSelector";
 import { ModelConfirmation } from "./preview/ModelConfirmation";
 import { InitialPreview } from "./preview/InitialPreview";
-import { Loader2 } from "lucide-react";
+import { LoadingOverlay } from "../ui/loading-overlay";
+import { ModelModal } from "./modals/ModelModal";
 
 interface PhonePreviewProps {
   selectedModel: string;
@@ -24,7 +25,6 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
     if (selectedModel && !hasConfirmed) {
       setIsLoading(true);
       setLocalSelectedModel(selectedModel);
-      // Simulate loading for smoother transition
       setTimeout(() => {
         setIsConfirming(true);
         setIsLoading(false);
@@ -38,7 +38,6 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
     setIsAnimating(true);
     setLocalSelectedModel(model);
     
-    // Sequence the animations with loading state
     setTimeout(() => {
       setShowModels(false);
       setTimeout(() => {
@@ -71,18 +70,6 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
     }, 300);
   };
 
-  const handleChooseDifferent = () => {
-    setIsLoading(true);
-    setIsAnimating(true);
-    setTimeout(() => {
-      setIsConfirming(false);
-      setShowModels(true);
-      setHasConfirmed(false);
-      setIsAnimating(false);
-      setIsLoading(false);
-    }, 300);
-  };
-
   return (
     <section 
       id="phone-preview" 
@@ -94,11 +81,7 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
         {selectedModel ? `Preview of Your ${selectedModel}` : "Find Your Perfect Ford"}
       </h2>
       <div className="relative flex flex-col items-center text-center min-h-[300px]">
-        {isLoading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-white/80 z-50 rounded-lg">
-            <Loader2 className="w-8 h-8 text-ford-blue animate-spin" />
-          </div>
-        )}
+        {isLoading && <LoadingOverlay />}
         
         <div className={`w-full transition-all duration-300 ${
           isAnimating ? 'scale-95 opacity-80' : 'scale-100 opacity-100'
@@ -109,7 +92,7 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
             <ModelConfirmation 
               model={localSelectedModel}
               onConfirm={handleConfirm}
-              onChooseDifferent={handleChooseDifferent}
+              onChooseDifferent={() => setShowModels(true)}
             />
           ) : (
             <>
@@ -127,9 +110,10 @@ export const PhonePreview = ({ selectedModel }: PhonePreviewProps) => {
       </div>
 
       {showModels && (
-        <ModelSelector 
+        <ModelModal 
           onModelSelect={handleModelClick}
           onClose={() => setShowModels(false)}
+          isLoading={isLoading}
         />
       )}
     </section>
