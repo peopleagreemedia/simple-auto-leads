@@ -15,7 +15,7 @@ const LandingPage = () => {
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-900 animate-fade-in">
       <Header />
 
-      <main className="container mx-auto px-4 py-12 max-w-4xl">
+      <main className="container mx-auto px-4 space-y-24 py-16 max-w-6xl">
         <HeroSection onModelSelect={setSelectedModel} />
         <PhonePreview selectedModel={selectedModel} />
         <BenefitsSection selectedModel={selectedModel} />

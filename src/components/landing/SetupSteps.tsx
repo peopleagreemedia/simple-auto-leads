@@ -21,18 +21,36 @@ export const SetupSteps = ({ selectedModel }: SetupStepsProps) => {
   };
 
   return (
-    <section className="mb-16 bg-white rounded-2xl p-8 shadow-lg">
-      <h2 className="text-2xl font-bold text-ford-blue mb-8 text-center">
-        {selectedModel ? `Get Started with Your ${selectedModel}` : t.setup.title}
-      </h2>
-      <div className="grid md:grid-cols-3 gap-8">
+    <section className="relative">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-ford-blue mb-4">
+          {selectedModel ? `Get Started with Your ${selectedModel}` : t.setup.title}
+        </h2>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Follow these simple steps to begin your journey
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-12">
         {t.setup.steps.map((step, index) => (
-          <div key={index} className="text-center space-y-4">
-            <div className="mx-auto w-16 h-16 bg-ford-blue/10 rounded-full flex items-center justify-center text-ford-blue">
-              {icons[index]}
+          <div 
+            key={index} 
+            className="relative bg-white rounded-xl p-8 shadow-lg text-center group hover:shadow-xl transition-shadow"
+          >
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+              <div className="w-12 h-12 bg-ford-blue text-white rounded-full flex items-center justify-center text-xl font-bold">
+                {index + 1}
+              </div>
             </div>
-            <h3 className="font-semibold text-lg">{step.title}</h3>
-            <p className="text-gray-600">{getPersonalizedDescription(step.description)}</p>
+            <div className="mt-8 space-y-4">
+              <div className="mx-auto w-16 h-16 bg-ford-blue/10 rounded-full flex items-center justify-center text-ford-blue group-hover:scale-110 transition-transform">
+                {icons[index]}
+              </div>
+              <h3 className="text-xl font-semibold text-ford-blue">{step.title}</h3>
+              <p className="text-gray-600 leading-relaxed">
+                {getPersonalizedDescription(step.description)}
+              </p>
+            </div>
           </div>
         ))}
       </div>
