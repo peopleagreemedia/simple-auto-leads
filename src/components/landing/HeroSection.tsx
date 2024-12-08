@@ -52,7 +52,7 @@ export const HeroSection = () => {
           <span className="block">
             {titleStart}Ford{" "}
             <span 
-              className={`inline-block min-w-[280px] transition-opacity duration-400 ease-in-out ${
+              className={`inline-block min-w-[180px] text-center transition-opacity duration-400 ease-in-out ${
                 isTransitioning ? 'opacity-0' : 'opacity-100'
               }`}
             >
