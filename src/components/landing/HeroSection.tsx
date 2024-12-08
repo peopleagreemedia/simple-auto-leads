@@ -60,15 +60,9 @@ export const HeroSection = ({ onModelSelect }: HeroSectionProps) => {
   }, [isPaused]);
 
   const handleModelClick = (model: string) => {
-    console.log("Selected model in HeroSection:", model); // Debug log
+    console.log("Selected model in HeroSection:", model);
     onModelSelect(model);
     setShowModels(false);
-    
-    // Find the form element and scroll to it
-    const formElement = document.querySelector('#contact-form');
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   const titleStart = t.hero.title.split("Ford")[0];
